@@ -2,7 +2,7 @@ version: '3.8'
 services:
 
   mysql:
-    image: mysql
+    image: mysql:latest
     container_name: mysql_container
     restart: always
     environment:
@@ -11,7 +11,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "3306:3306"
+      - "27000:27000"
     volumes:
       - mysqldb_data:/var/lib/mysql
 
@@ -40,3 +40,6 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  mysqldb_data:
